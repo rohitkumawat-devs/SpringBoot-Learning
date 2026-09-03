@@ -15,7 +15,7 @@ This repository documents my journey of learning Spring Boot through hands-on co
 | ✅ | Spring Framework Overview |
 | ✅ | First Spring Boot Application |
 | ✅ | Apache Maven |
-| ⬜ | Dependency Injection (DI) |
+| ✅ | Dependency Injection (DI) |
 | ⬜ | IoC Container |
 | ⬜ | Bean Lifecycle |
 | ⬜ | Spring Boot Core |
