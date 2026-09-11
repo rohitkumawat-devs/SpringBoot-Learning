@@ -17,6 +17,8 @@ This repository documents my journey of learning Spring Boot through hands-on co
 | ✅ | Apache Maven |
 | ✅ | Dependency Injection (DI) |
 | ✅ | IoC Container |
+| ✅ | Circular Dependency |
+| ⬜ | Bean Scope |
 | ⬜ | Bean Lifecycle |
 | ⬜ | Spring Boot Core |
 | ⬜ | Application Properties |
