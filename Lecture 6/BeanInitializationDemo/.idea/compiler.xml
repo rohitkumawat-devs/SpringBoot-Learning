@@ -7,8 +7,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="BeanInitializationDemo" />
-        <module name="BeanScopeDemo" />
-        <module name="CircularDependencyDemo" />
       </profile>
     </annotationProcessing>
   </component>

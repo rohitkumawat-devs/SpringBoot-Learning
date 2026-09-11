@@ -6,6 +6,8 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/CircularDependencyDemo/pom.xml" />
+        <option value="$PROJECT_DIR$/BeanScopeDemo/pom.xml" />
+        <option value="$PROJECT_DIR$/BeanInitializationDemo/pom.xml" />
       </list>
     </option>
   </component>
