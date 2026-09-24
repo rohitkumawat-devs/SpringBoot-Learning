@@ -19,7 +19,7 @@ This repository documents my journey of learning Spring Boot through hands-on co
 | ✅ | IoC Container |
 | ✅ | Circular Dependency |
 | ✅ | Bean Scope |
-| ⬜ | Bean Lifecycle |
+| ✅ | Bean Lifecycle |
 | ⬜ | Spring Boot Core |
 | ⬜ | Application Properties |
 | ⬜ | CRUD API Development |
