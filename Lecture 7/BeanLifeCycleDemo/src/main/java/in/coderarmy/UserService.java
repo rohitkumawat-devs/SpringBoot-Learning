@@ -7,7 +7,7 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 //@Component
-@Component("userBean") // can also do like this
+//@Component("userBean") // can also do like this
 public class UserService implements BeanNameAware , ApplicationContextAware {
     public UserService(){
         System.out.println("UserService Constructor Called");
