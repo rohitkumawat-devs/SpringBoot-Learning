@@ -5,11 +5,54 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- bean definitions here -->
-    <bean id="orderService"
-          name="orderServiceBean, orderServiceBean1 , orderServiceBean2"
-          class="in.coderarmy.OrderService"/>
 
-<!--    <bean id="orderService2" class="in.coderarmy.OrderService"/>-->
-    <bean id="paymentService" class="in.coderarmy.PaymentService"/>
 
+<!--    <bean id="paymentService" class="in.coderarmy.payment.PaymentService">-->
+<!--        <constructor-arg index="1" value="3"/>-->
+<!--&lt;!&ndash;        <constructor-arg index="0" value="UPI"/>&ndash;&gt;-->
+<!--        <constructor-arg name="type" value="UPI"/>-->
+<!--     </bean>-->
+
+<!--&lt;!&ndash;    used for setter&ndash;&gt;-->
+<!--    <bean id="orderService"  name="orderServiceBean, orderServiceBean1 , orderServiceBean2"  class="in.coderarmy.OrderService">-->
+<!--        <property name="paymentServiceBean" ref="paymentService"/>-->
+<!--    </bean>-->
+
+
+<!--&lt;!&ndash;        used for constructor&ndash;&gt;-->
+<!--&lt;!&ndash;    <bean id="orderService"&ndash;&gt;-->
+<!--&lt;!&ndash;          name="orderServiceBean, orderServiceBean1 , orderServiceBean2"&ndash;&gt;-->
+<!--&lt;!&ndash;          class="in.coderarmy.OrderService">&ndash;&gt;-->
+<!--&lt;!&ndash;        <constructor-arg ref="paymentService"/>&ndash;&gt;-->
+<!--&lt;!&ndash;    </bean>&ndash;&gt;-->
+<!--    &lt;!&ndash;    <bean id="orderService2" class="in.coderarmy.OrderService"/>&ndash;&gt;-->
+
+
+
+
+
+
+<!--    <bean id="userService" class="in.coderarmy.UserService"-->
+<!--    scope="prototype"/>-->
+
+<!--    <bean id="userService" class="in.coderarmy.UserService">-->
+<!--        <constructor-arg value="Aditya"/>-->
+<!--    </bean>-->
+
+<!--    for list -->
+<!--    <bean id="userService" class="in.coderarmy.UserService">-->
+<!--        <constructor-arg name="usernames">-->
+<!--            <list>-->
+<!--                <value>Aditya</value>-->
+<!--                <value>Akshay</value>-->
+<!--                <value>Aditi</value>-->
+<!--            </list>-->
+<!--        </constructor-arg>-->
+<!--    </bean>-->
+
+    <bean id="userService" class="in.coderarmy.UserService"
+         init-method="init"
+          destroy-method="cleanup"
+          scope="prototype"
+    />
 </beans>

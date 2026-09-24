@@ -1,5 +1,6 @@
 package in.coderarmy;
 
+import com.sun.tools.jconsole.JConsoleContext;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -8,7 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     static void main() {
-        ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("appConfig.xml");
         // Get bean by type
         // this will not work when we have more than one bean
         // OrderService orderService = context.getBean(OrderService.class);
@@ -18,10 +19,10 @@ public class Main {
         // OrderService orderService = (OrderService) context.getBean("orderService");
 
         // we pass both orderService bean and id
-        OrderService orderService = context.getBean("orderServiceBean2",OrderService.class);
-
-        PaymentService payment = context.getBean("paymentService" , PaymentService.class);
-        payment.pay();
-        orderService.placeOrder();
+//        OrderService orderService = context.getBean("orderService",OrderService.class);
+//        orderService.placeOrder();
+        UserService user = context.getBean(UserService.class);
+//        System.out.println(user.getUserNames());
+        context.close();
     }
 }

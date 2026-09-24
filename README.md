@@ -20,7 +20,7 @@ This repository documents my journey of learning Spring Boot through hands-on co
 | ✅ | Circular Dependency |
 | ✅ | Bean Scope |
 | ✅ | Bean Lifecycle |
-| ⬜ | Spring XML Configuration |
+| ✅ | Spring XML Configuration |
 | ⬜ | Spring Boot Core |
 | ⬜ | Application Properties |
 | ⬜ | CRUD API Development |
