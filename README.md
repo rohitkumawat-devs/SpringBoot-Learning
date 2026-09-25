@@ -22,7 +22,7 @@ This repository documents my journey of learning Spring Boot through hands-on co
 | ✅ | Bean Lifecycle |
 | ✅ | Spring XML Configuration |
 | ✅ | Spring Boot Core |
-| ⬜ | Application Properties |
+| ✅ | Application Properties |
 | ⬜ | CRUD API Development |
 | ⬜ | MySQL Integration |
 | ⬜ | Spring Data JPA |
