@@ -43,7 +43,7 @@ public class StudentService {
     public Student updateStudent(Long id , Student studentReq){
         Optional<Student> existingStudent  = studentRepository.findById(id);
 
-        if(studentResp.isEmpty()){
+        if(existingStudent.isEmpty()){
             return null;
         }
         Student studentToSave = existingStudent.get();
@@ -54,5 +54,16 @@ public class StudentService {
         studentToSave.setEmail(studentReq.getEmail());
 
         return studentRepository.save(studentToSave);
+    }
+
+    public Boolean deleleStudent(Long id){
+        Boolean isStudent = studentRepository.existsById(id);
+
+        if(!isStudent){
+            return false;
+        }
+
+        studentRepository.deleteById(id);
+        return true;
     }
 }
