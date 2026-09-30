@@ -5,10 +5,9 @@ import in.coderarmy.crudSpringBootDemo.service.StudentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/students")
@@ -23,15 +22,37 @@ public class StudentController {
     // Create Student
     @PostMapping("/create")
     public ResponseEntity<Student> createStudent(@RequestBody  Student student){
-        System.out.println("Inside Student Controller");
         Student createdstudent = studentService.createStudent(student);
-        System.out.println("Exiting Student Controller");
         return ResponseEntity.status(HttpStatus.CREATED).body(createdstudent);
     }
 
     // Read Student
+    @GetMapping("/get/{id}")
+    public ResponseEntity<Student> getStudent(@PathVariable Long id){
+        Student studentRes = studentService.getStudent(id);
+        if(studentRes==null){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+        return ResponseEntity.ok(studentRes);
+    }
 
+    @GetMapping("/getAll")
+    public ResponseEntity<List<Student>> getAllStudent(){
+        List<Student> studentList = studentService.getAllStudent();
+        if(studentList.isEmpty()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+        return ResponseEntity.ok(studentList);
+    }
     // Update
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Student> updateStudent(@PathVariable Long id , @RequestBody Student studentReq){
+        Student studentResp = studentService.updateStudent(id , studentReq);
+        if(studentResp ==null){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+        return ResponseEntity.ok(studentResp);
+    }
 
     // Delete Student
 }

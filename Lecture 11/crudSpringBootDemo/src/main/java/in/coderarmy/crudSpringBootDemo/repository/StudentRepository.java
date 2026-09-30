@@ -1,21 +1,12 @@
 package in.coderarmy.crudSpringBootDemo.repository;
 
 import in.coderarmy.crudSpringBootDemo.entity.Student;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.RepositoryDefinition;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
-public class StudentRepository {
+//@Repository no use since we can't make object of interface
+public interface StudentRepository extends JpaRepository<Student ,Long> {
 
-    public Student saveStudent(Student studentReq){
-        // save to db
-        System.out.println("Inside Student Repository");
-        Student s1 = new Student();
-        s1.setName("Raghav");
-        s1.setAge(23);
-        s1.setEmail("raghav@gmail.com");
-        s1.setRollno(34);
-        s1.setSubject("SpringBoot FrameWork");
-        System.out.println("Exiting Student Repository");
-        return s1;
-    }
 }
