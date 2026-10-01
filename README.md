@@ -24,6 +24,7 @@ This repository documents my journey of learning Spring Boot through hands-on co
 | ✅ | Spring Boot Core |
 | ✅ | Application Properties |
 | ✅ | CRUD Project Development |
+| ⬜ | Servlets, Tomcat & WAR Files |
 | ⬜ | MySQL Integration |
 | ⬜ | Spring Data JPA |
 | ⬜ | Hibernate Fundamentals |
