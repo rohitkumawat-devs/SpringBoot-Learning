@@ -25,13 +25,25 @@ public class UserService {
     public User getUserById(Integer id){
         return userDB.get(id);
     }
-    private User updateUser(User updatedUser) {
-        for(int i = 0; i < userDB.size(); i++) {
-            if(userDB.get(i).getId() == updatedUser.getId()) {
-                userDB.set(i, updatedUser);
-                return updatedUser;
-            }
+
+//    private User updateUser(User updatedUser) {
+//        for(int i = 0; i < userDB.size(); i++) {
+//            if(userDB.get(i).getId() == updatedUser.getId()) {
+//                userDB.set(i, updatedUser);
+//                return updatedUser;
+//            }
+//        }
+//        return null;
+//    }
+
+    public User updateUser(User updatedUser){
+        if(!userDB.containsKey(updatedUser.getId())){
+            return null;
         }
-        return null;
+        userDB.put(updatedUser.getId(),updatedUser);
+        return updatedUser;
+    }
+    public boolean deleteUser(Integer id){
+        return userDB.remove(id)!=null;
     }
 }

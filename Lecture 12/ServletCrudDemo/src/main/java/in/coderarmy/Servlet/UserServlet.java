@@ -30,9 +30,10 @@ public class UserServlet extends HttpServlet {
                             "    \"message\" : \"Some Error Occured\"\n" +
                             "}"
             );
+            return;
         }
         User NewUser = new User(id,name,email,mobile);
-        User createdUser = userService.createUser(user);
+        User createdUser = userService.createUser(NewUser);
 
         // 201 -> resource created
         response.setStatus(201);
@@ -76,6 +77,9 @@ public class UserServlet extends HttpServlet {
             // return 404
             response.setStatus(404);
             response.setContentType("application/json");
+            response.getWriter().write(                    "{\n" +
+                    "    \"message\" : \"User Id Required\"\n" +
+                    "}");
         }
         Integer id = Integer.parseInt(param);
         User existingUser = userService.getUserById(id);
@@ -92,13 +96,55 @@ public class UserServlet extends HttpServlet {
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String mobile = request.getParameter("mobile");
-
-
+        if(name==null || email == null || mobile==null){
+            response.setContentType("application/json");
+            response.setStatus(400);
+            response.getWriter().write(
+                    "{\n" +
+                    "    \"message\" : \"All Fields are req\"\n" +
+                    "}");
+            return;
+        }
+        User updatedUser = new User(id,mobile,email,name);
+        userService.updateUser(updatedUser);
+        response.setStatus(200);
+        response.setContentType("application/json");
+        response.getWriter().write(userToJson(updatedUser));
     }
 
     @Override
-    public void doDelete(HttpServletRequest httpServletRequest , HttpServletResponse httpServletResponse){
-
+    public void doDelete(HttpServletRequest request , HttpServletResponse response) throws IOException {
+        String param = request.getParameter("id");
+        if(param==null){
+            response.setStatus(404);
+            response.setContentType("application/json");
+            response.getWriter().write(
+                    "{\n" +
+                            "    \"message\" : \"User Not Found\"\n" +
+                            "}"
+            );
+            return;
+        }
+        Integer id = Integer.parseInt(param);
+        User exisitingUser = userService.getUserById(id);
+        if(exisitingUser==null){
+            response.setStatus(400);
+            response.setContentType("application/json");
+            response.getWriter().write(
+                    "{\n" +
+                            "    \"message\" : \"User Not Found\"\n" +
+                            "}"
+            );
+            return;
+        }
+        boolean deleted = userService.deleteUser(id);
+        if(deleted==true){
+            response.setStatus(200);
+            response.getWriter().write(
+                    "{\"message\":\"User Deleted Successfully\"}"
+            );
+            return;
+        }
     }
 
     private String userToJson(User user){
