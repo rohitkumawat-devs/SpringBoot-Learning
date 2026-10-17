@@ -54,6 +54,7 @@ public class UserServlet extends HttpServlet {
             response.setStatus(200);
             response.setContentType("application/json");
             response.getWriter().write(usersToJson(users));
+            return;
         }
         Integer id = Integer.parseInt(idParam);
         User userResp = userService.getUserById(id);

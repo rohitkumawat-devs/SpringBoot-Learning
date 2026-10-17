@@ -2,6 +2,7 @@ package in.coderarmy.service;
 
 import in.coderarmy.model.User;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,7 +20,11 @@ public class UserService {
         return userReq;
     }
     public List<User> getAllUsers(){
-        return (List<User>) userDB.values();
+        List<User> usersResp = new ArrayList<>();
+        for(User user : userDB.values()){
+            usersResp.add(user);
+        }
+        return usersResp;
     }
 
     public User getUserById(Integer id){
