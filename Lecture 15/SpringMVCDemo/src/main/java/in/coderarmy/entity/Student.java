@@ -3,8 +3,16 @@ package in.coderarmy.entity;
 public class Student {
 
     private Long id;
-    private int name;
+    private String name;
     private String email;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public Long getId() {
         return id;
@@ -14,13 +22,7 @@ public class Student {
         this.id = id;
     }
 
-    public int getName() {
-        return name;
-    }
 
-    public void setName(int name) {
-        this.name = name;
-    }
 
     public String getEmail() {
         return email;

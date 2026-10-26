@@ -1,10 +1,14 @@
 package in.coderarmy.controller;
 
+import in.coderarmy.entity.Student;
 import in.coderarmy.service.StudentService;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
-@RestController
+import java.util.List;
+
+@Controller
 @RequestMapping("/students")
 public class StudentController {
     private StudentService studentService;
@@ -12,5 +16,31 @@ public class StudentController {
     public StudentController(StudentService studentService){
         this.studentService = studentService;
     }
-    
+
+    @PostMapping
+    @ResponseBody
+    public ResponseEntity<Student> createStudent(@RequestBody Student studentReq){
+        Student studentResp = studentService.createStudent(studentReq);
+        return ResponseEntity.ok(studentResp);
+    }
+
+
+    @GetMapping("/{id}")
+    @ResponseBody
+    public ResponseEntity<Student> getStudent(@PathVariable("id") Long id){
+        Student studentResp = studentService.getStudent(id);
+        if(studentResp==null){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(studentResp);
+    }
+
+    @GetMapping
+    @ResponseBody
+    public ResponseEntity<List<Student>> getAllStudent(){
+        List<Student> studentResp = studentService.getAllStudent();
+        return ResponseEntity.ok(studentResp); // if empty then empty will be returned
+    }
+
+
 }
